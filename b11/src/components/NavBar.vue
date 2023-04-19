@@ -22,11 +22,12 @@
     .nav-wrapper{
         width: 100vw;
         height: 10vh;
-        border-style: solid;
-        border-color: red;
         display: flex;
         align-items: center;
         justify-content: space-around;
+    }
+    .logo, .text-wrapper, .menu-button {
+        z-index: 10;
     }
     .logo{
         font-family: "Caslon Semi Bold Hairline";
