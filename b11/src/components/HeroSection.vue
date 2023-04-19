@@ -3,11 +3,11 @@
         <h1 id="heading">RECYCLE WITH US</h1>
         <div id="module-parent">
             <div id="preview-left">previous</div>
-            <!-- <div id="mtr">
+            <div id="mtr">
                 <div class="mtr-back"></div>
                 <div class="mtr-spotlight"></div>
                 <div class="mtr-next"></div>
-            </div> -->
+            </div>
             <div id="preview-right">next</div>
         </div>
     </section>
@@ -62,19 +62,46 @@
 
     #preview-left, #preview-right {
         height: inherit;
+        width: 5vw;
         flex-direction: column;
         text-align: center;
         background-color: red;
-    }
+
+        font-family: 'Caslon Semi Bold Hairline';
+
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: 0.115em;    }
 
     #preview-left {
-        flex-direction: column;
         writing-mode: sideways-lr;
+        justify-self: flex-start;
     }
 
     #preview-right {
-        flex-direction: column;
         writing-mode: sideways-rl;
+        justify-self: flex-end;
+    }
+
+    #mtr {
+        height: inherit;
+        width: 90vw;
+        background-color: green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mtr-back, .mtr-next {
+        height: 100px;
+        width: 100px;
+        background-color: aqua;
+        margin: 5vw;
+    }
+
+    .mtr-spotlight {
+        height: 63vh;
+        width: 21vw;
+        background-color: coral;
     }
 
 </style>
