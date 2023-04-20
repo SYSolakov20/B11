@@ -17,7 +17,7 @@ const app = express()
 const sessConfig: SessionOptions = {
   resave: false,
   saveUninitialized: true,
-  secret: 'keyboard cat',
+  secret: 'secret',
   cookie: { secure: false }
 }
 

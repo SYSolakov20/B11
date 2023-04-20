@@ -23,6 +23,7 @@ model OwnedStock {
 
   quantity      Float
   measuringUnit String
+  isUpForSelling Boolean
 }
 
 enum Role {
