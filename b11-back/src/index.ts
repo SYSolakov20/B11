@@ -1,23 +1,42 @@
 import dotenv from 'dotenv'
-import express from 'express'
+import express, { Router } from 'express'
 import passport from 'passport'
-import { PrismaClient } from '@prisma/client'
+import session, { type SessionOptions } from 'express-session'
+import prisma from './prisma'
 
 import IndexRouter from './routes/index.routes'
+import AuthRouter from './routes/api/auth.routes'
+import UserRouter from './routes/api/user.routes'
 import { register as registerAuth } from './auth'
 
 if (process.env.NODE_ENV === 'development') dotenv.config()
 
 const app = express()
-const prisma = new PrismaClient()
+const sessConfig: SessionOptions = {
+  resave: false,
+  saveUninitialized: true,
+  secret: 'keyboard cat',
+  cookie: { secure: false }
+}
 
-app.get('/', (req, res) => res.send('welcome!'))
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1)
+  if (sessConfig.cookie != null) {
+    sessConfig.cookie.secure = true
+  }
+}
 
 app.use(express.json())
 app.use(passport.initialize())
+app.use(session(sessConfig))
 
 registerAuth(passport, prisma)
 
+const apiRouter = Router()
+apiRouter.use(UserRouter)
+apiRouter.use(AuthRouter)
+
+app.use('/api', apiRouter)
 app.use(IndexRouter)
 
 if (process.env.PORT != null) app.listen(process.env.PORT)

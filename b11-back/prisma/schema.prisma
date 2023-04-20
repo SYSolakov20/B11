@@ -8,12 +8,17 @@ datasource db {
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
-  discordId String? @unique
-  githubId  String? @unique
+  id                Int                  @id @default(autoincrement())
+  email             String?
+  username          String               @unique
+  realname          String?
+  credentials       ExternalCredential[]
+}
 
-  email     String
-  username  String
-  firstName String?
-  lastName  String?
+model ExternalCredential {
+  id         Int     @id @default(autoincrement())
+  provider   String?
+  externalId String  @unique
+  user       User    @relation(fields: [userId], references: [id])
+  userId     Int
 }
