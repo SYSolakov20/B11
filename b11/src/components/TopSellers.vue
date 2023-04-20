@@ -2,7 +2,7 @@
     <div class="section-wrapper">
         <div class="section-heading">Buy Glass</div>
         <div class="separation-line"></div>
-        <div class="wrapper-na-wrapper">
+        <div class="wrapper-na-wrapper" :style="{ overflowX: 'hidden' }">
             <div class="seller-wrapper">
                 <div class="seller-image"></div>
                     <div class="seller-info">
@@ -43,19 +43,19 @@
     }
     .section-wrapper{
         width: 100vw;
-        padding-left: 3rem;
-
     }
     .section-heading{
         font-family: "Caslon Semi Bold Hairline";
         font-size: 6rem;
         margin-top: 2rem;
+        padding-left: 3rem;
     }
     .separation-line{
         width: 10vw;
         height: 4px;
         background-color: #D05858;
         margin-top: 1rem;
+        margin-left: 3rem;
     }
     .wrapper-na-wrapper{
         width: 100%;
@@ -73,6 +73,7 @@
         align-items: center;
         justify-content: space-around;
         margin-top: 2.7rem;
+        margin-left: 3rem;
     }
     .seller-image{
         width: 71px;
