@@ -2,31 +2,35 @@
     <section>
         <div class="radial-top"></div>
         <div class="radial-bottom"></div>
+
         <div class="heading-container">
             <h1 id="heading">{{ text }}</h1>
         </div>
+        
         <div id="module-parent">
+
             <div id="preview-left">previous</div>
             <div id="mtr">
+
                 <div class="mtr-back">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M561 816 320 575l241-241 43 43-198 198 198 198-43 43Z"/></svg>
                 </div>
-                <div class="mtr-spotlight"></div>
-                    <CCarousel>
-                        <CCarouselItem>
-                            <img class="d-block w-100" src="../assets/images/profile_1.jpg" alt="slide 1"/>
-                        </CCarouselItem>
-                        <CCarouselItem>
-                            <img class="d-block w-100" src="../assets/images/profile_2.jpg" alt="slide 2"/>
-                        </CCarouselItem>
-                        <CCarouselItem>
-                            <img class="d-block w-100" src="../assets/images/profile_3.jpg" alt="slide 3"/>
-                        </CCarouselItem>
-                    </CCarousel>
+
+                <div class="mtr-spotlight">
+                    <div class="carousel">
+                        <div class="slides-container" :style="{ transform: 'translateX(' + translateX + 'px)' }">
+                        <div v-for="(slide, index) in slides" :key="index" class="slide">{{ slide }}</div>
+                        </div>
+                        <button class="prev-btn" @click="previousSlide">&lt;</button>
+                        <button class="next-btn" @click="nextSlide">&gt;</button>
+                    </div>
+                </div>
+
                 <div class="mtr-next">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m375 816-43-43 198-198-198-198 43-43 241 241-241 241Z"/></svg>
                 </div>
             </div>
+
             <div id="preview-right">next</div>
         </div>
     </section>
@@ -34,47 +38,36 @@
 
 
 <script>
-import { CCarousel, CCarouselItem } from '@coreui/vue';
-import '@coreui/coreui/dist/css/coreui.min.css'
-//   import Carousel from 'vue-carousel'
-//   import Slide from 'vue-carousel/src/Slide.vue'
-
-//   export default {
-//     components: {
-//       Carousel,
-//       Slide
-//     },
-//     data() {
-//       return {
-//         items: [
-//           {
-//             id: 1,
-//             image: 'https://via.placeholder.com/350x150',
-//             title: 'Slide 1',
-//             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-//           },
-//           {
-//             id: 2,
-//             image: 'https://via.placeholder.com/350x150',
-//             title: 'Slide 2',
-//             description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-//           },
-//           {
-//             id: 3,
-//             image: 'https://via.placeholder.com/350x150',
-//             title: 'Slide 3',
-//             description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-//           }
-//         ]
-//       }
-//     }
-//   }
-
+// import { CCarousel, CCarouselItem } from '@coreui/vue';
+// import '@coreui/coreui/dist/css/coreui.min.css'
     export default {
         data() {
-        return {
-            text: 'RECYCLE WITH US //   BUY FROM SOURCE //   SELL TO THE WORLD //  RECYCLE WITH US //   BUY FROM SOURCE //   SELL TO THE WORLD //  RECYCLE WITH US //   BUY FROM SOURCE //   SELL TO THE WORLD //  '
-        }
+            return {
+                text: 'RECYCLE WITH US //   BUY FROM SOURCE //   SELL TO THE WORLD //  RECYCLE WITH US //   BUY FROM SOURCE //   SELL TO THE WORLD //  RECYCLE WITH US //   BUY FROM SOURCE //   SELL TO THE WORLD //  ',
+                currentSlide: 0,
+                translateX: 0,
+                slideWidth: 0,
+                slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"]
+            };
+        },
+        mounted() {
+            this.slideWidth = this.$el.querySelector(".slide").offsetWidth;
+        },
+        methods: {
+            previousSlide() {
+                if (this.currentSlide > 0) 
+                {
+                    this.currentSlide--;
+                    this.translateX += this.slideWidth;
+                }
+            }
+        },
+        nextSlide() {
+            if (this.currentSlide < this.slides.length - 1) 
+            {
+                this.currentSlide++;
+                this.translateX -= this.slideWidth;
+            }
         }
     }
 </script>
@@ -94,6 +87,44 @@ import '@coreui/coreui/dist/css/coreui.min.css'
         font-family: 'Lato Regular';
         src: url(../assets/fonts/F37Lato-Regular.ttf);
     }
+
+    // BEGINING OF SPAGHETTI
+    .carousel {
+    position: relative;
+    overflow: hidden;
+    }
+
+    .slides-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    }
+
+    .slide {
+    flex: 0 0 auto;
+    width: 100%;
+    }
+
+    .prev-btn,
+    .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    }
+
+    .prev-btn {
+    left: 0;
+    }
+
+    .next-btn {
+    right: 0;
+    }
+
+    // END OF SPAGHETTI
 
     section {
         height: 100vh;
