@@ -34,7 +34,7 @@ router.get('/user/:id', (req, res) => {
 router.get('/user/:id/external_credential', (req, res) => {
   prisma.externalCredential
     .findMany({ where: { userId: parseInt(req.params.id) } })
-    .then(cred => {
+    .then((cred) => {
       if (cred.length > 0) {
         res.json(cred)
       } else {
@@ -45,7 +45,7 @@ router.get('/user/:id/external_credential', (req, res) => {
         })
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500)
       res.json({
         error: true,
