@@ -3,7 +3,7 @@
         <router-link to="/">
             <div class="logo">B11</div>
         </router-link>
-        <div class="text-wrapper">BUY / SELL / AQUIRE</div>
+        <div class="text-wrapper">BUY // SELL // AQUIRE</div>
         <div class="menu-button">Menu</div>
     </div>
 </template>
