@@ -47,7 +47,7 @@
                 currentSlide: 0,
                 translateX: 0,
                 slideWidth: 0,
-                slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"]
+                //slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"]
             };
         },
         mounted() {
@@ -176,7 +176,7 @@
         width: 100vw;
         height: 80vh;
         display: flex;
-        background-color: blue;
+
     }
 
     #preview-left, #preview-right {
@@ -184,7 +184,7 @@
         width: 5vw;
         flex-direction: column;
         text-align: center;
-        background-color: red;;
+
 
         font-family: 'Caslon Semi Bold Hairline';
         font-size: 3rem;
@@ -206,7 +206,7 @@
     #mtr {
         height: inherit;
         width: 90vw;
-        background-color: green;
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -214,7 +214,7 @@
     .mtr-back, .mtr-next {
         height: 100px;
         width: 100px;
-        background-color: aqua;
+
         margin: 5vw;
         border: 3px dashed #464646;
         display: flex;
