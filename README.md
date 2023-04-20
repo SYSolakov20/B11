@@ -65,7 +65,7 @@ git clone https://github.com/SYSolakov20/B11.git
  ## 🎬 Demo of the project 
   
   <p align="center">
-  <img  width = "900px" >
+  <img src="https://media.discordapp.net/attachments/900689339179216926/1098570733405339668/Studio_Display_Front_View_Mockup.png?width=1358&height=1044" width = "900px" >
   </p>
 
 ## ⚙ Website Access
