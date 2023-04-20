@@ -1,23 +1,25 @@
 <template>
-  <div class="card-container">
-    <div class="card" v-for="(card, index) in cards" :key="index">
-      <div class="card-top" :class="{ dimmed: card.showInfo }">
-        <img :src="card.image" alt="card image" />
-        <button class="info-button" @click="toggleInfo(index)">i</button>
-      </div>
-      <div class="card-bottom">
-        <div class="card-label">{{ card.label1 }}</div>
-        <div class="card-label">{{ card.label2 }}</div>
-      </div>
-      <div class="card-info" v-if="card.showInfo">
-        <div class="card-info-overlay" @click="toggleInfo(index)"></div>
-        <div class="card-info-content">
-          <h3>{{ card.title }}</h3>
-          <p>{{ card.description }}</p>
+      <div class="card-container">
+        <div class="card" v-for="(card, index) in cards" :key="index">
+          <div class="card-top" :class="{ dimmed: card.showInfo }">
+            <img :src="card.image" alt="card image" />
+            <button class="info-button" @click="toggleInfo(index)">i</button>
+          </div>
+          <router-link to="/product">
+            <div class="card-bottom">
+              <div class="card-label">{{ card.label1 }}</div>
+              <div class="card-label">{{ card.label2 }}</div>
+            </div>
+          </router-link>
+          <div class="card-info" v-if="card.showInfo">
+            <div class="card-info-overlay" @click="toggleInfo(index)"></div>
+            <div class="card-info-content">
+              <h3>{{ card.title }}</h3>
+              <p>{{ card.description }}</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script>

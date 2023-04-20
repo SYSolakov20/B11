@@ -1,6 +1,8 @@
 <template>
     <div class="nav-wrapper">
-        <div class="logo">B11</div>
+        <router-link to="/">
+            <div class="logo">B11</div>
+        </router-link>
         <div class="text-wrapper">BUY / SELL / AQUIRE</div>
         <div class="menu-button">Menu</div>
     </div>
@@ -32,6 +34,8 @@
     .logo{
         font-family: "Caslon Semi Bold Hairline";
         font-size: 3.75rem;
+        color: black;
+        text-decoration: none;
     }
     .text-wrapper{
         font-family: "Lato Regular";
