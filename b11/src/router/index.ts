@@ -12,8 +12,8 @@ const router = createRouter({
       component: HomeView
     }, 
     {
-      path: '/glass',
-      name: 'home',
+      path: '/material',
+      name: 'material',
       component: GlassView
     },  
   ]
