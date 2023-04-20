@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import GlassView from '../views/GlassView.vue'
 import ProductView from '../views/ProductView.vue'
 import MenuView from '../views/MenuView.vue'
+import LoginView from '../views/LoginView.vue'
+import RegisterView from '../views/RegisterView.vue'
 
 
 const router = createRouter({
@@ -27,7 +29,17 @@ const router = createRouter({
       path: '/menu',
       name: 'menu',
       component: MenuView
-    },   
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
+    }, 
+    {
+      path: '/register',
+      name: 'register',
+      component: RegisterView
+    } 
   ]
 })
 

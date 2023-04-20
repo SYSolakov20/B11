@@ -1,4 +1,7 @@
 <template>
+    
+</template>
+<!-- <template>
     <section>
         <div class="wrapper">
             <div class="grid-container">
@@ -69,4 +72,4 @@
         }
     }
     };
-</script>
+</script> -->
