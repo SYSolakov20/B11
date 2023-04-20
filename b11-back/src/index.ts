@@ -7,6 +7,8 @@ import prisma from './prisma'
 import IndexRouter from './routes/index.routes'
 import AuthRouter from './routes/api/auth.routes'
 import UserRouter from './routes/api/user.routes'
+import StockRouter from './routes/api/stock.routes'
+
 import { register as registerAuth } from './auth'
 
 if (process.env.NODE_ENV === 'development') dotenv.config()
@@ -35,6 +37,7 @@ registerAuth(passport, prisma)
 const apiRouter = Router()
 apiRouter.use(UserRouter)
 apiRouter.use(AuthRouter)
+apiRouter.use(StockRouter)
 
 app.use('/api', apiRouter)
 app.use(IndexRouter)

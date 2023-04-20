@@ -7,12 +7,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Stock {
+  id              Int          @id @default(autoincrement())
+  name          String       @unique
+  availableStocks OwnedStock[]
+}
+
+model OwnedStock {
+  id Int @id @default(autoincrement())
+
+  stock         Stock @relation(fields: [stockId], references: [id])
+  stockId       Int
+  ownedByUser   User  @relation(fields: [ownedByUserId], references: [id])
+  ownedByUserId Int
+
+  quantity      Float
+  measuringUnit String
+}
+
+enum Role {
+  USER
+  IRL_BUYER
+  ADMIN
+}
+
 model User {
-  id                Int                  @id @default(autoincrement())
-  email             String?
-  username          String               @unique
-  realname          String?
-  credentials       ExternalCredential[]
+  id       Int     @id @default(autoincrement())
+  email    String?
+  username String  @unique
+  realname String?
+  role     Role    @default(USER)
+
+  credentials     ExternalCredential[]
+  availableStocks OwnedStock[]
 }
 
 model ExternalCredential {
