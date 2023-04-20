@@ -21,8 +21,7 @@
                         <div class="slides-container" :style="{ transform: 'translateX(' + translateX + 'px)' }">
                         <div v-for="(slide, index) in slides" :key="index" class="slide">{{ slide }}</div>
                         </div>
-                        <button class="prev-btn" @click="previousSlide">&lt;</button>
-                        <button class="next-btn" @click="nextSlide">&gt;</button>
+                        <img src="https://media.discordapp.net/attachments/954379040918212689/1098584944206426132/Paper.png?width=730&height=1118">
                     </div>
                 </div>
 
