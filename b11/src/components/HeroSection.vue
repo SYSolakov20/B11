@@ -88,7 +88,7 @@
         src: url(../assets/fonts/F37Lato-Regular.ttf);
     }
 
-    // BEGINING OF SPAGHETTI
+    // START OF SPAGHETTI
     .carousel {
     position: relative;
     overflow: hidden;
@@ -227,22 +227,15 @@
             transform: translateX(-100%);
         }
         1% {
-            /* add this new keyframe to move the text into the view */
             transform: translateX(0%);
         }
         100% {
             transform: translateX(-100%);
-            /* add this new keyframe to move the text back to its starting position */
         }
         101% {
             transform: translateX(100%);
         }
     }
-    // .mtr-spotlight {
-    //     height: 63vh;
-    //     width: 21vw;
-    //     background-color: coral;
-    //     z-index: 10;
-    // }
+
 
 </style>
